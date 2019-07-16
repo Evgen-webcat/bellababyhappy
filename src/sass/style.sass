@@ -1,10 +1,821 @@
 @import "breakpoints"
 @import "../../node_modules/bootstrap/scss/bootstrap-grid"
 @import "../../node_modules/bootstrap/scss/bootstrap-reboot"
-
+@import "../../node_modules/slick-carousel/slick/slick"
 @import "fonts"
 @import "color"
 
+body
+	color: $dark-blue
+	font-family: 'Montserrat', sans-serif
+	background-color: $gray
 
+a
+	color: $dark-blue
+	&:hover,
+	&:focus,
+	&:active
+		color: lighten($dark-blue, 20%)
+		text-decoration: none
+
+.button
+	padding: 10px
+	box-sizing: border-box
+	display: flex
+	justify-content: center
+	align-items: center
+	width: 300px
+	height: 65px
+	font-size: 1.125rem
+	font-weight: 600
+	border-radius: 40px
+	border: none
+
+.header
+	position: relative
+	z-index: 1
+	background-color: #fff
+	&_user
+		height: 65px
+		line-height: 65px
+	&_link
+		font-size: 1.125rem
+		font-weight: 500
+		.fa
+			margin-right: 20px
+			color: $blue
+		&.link-signin
+			display: none
+			.fa
+				margin: 0 0 0 10px
+	&_bottom
+		height: 70px
+		line-height: 70px
+		background-color: $blue
+		.logo_wrap
+			transform: translateY(-50%)
+		.logo
+			z-index: 1
+			position: relative
+			max-width: 100%
+	&_button
+		display: flex
+		align-items: center
+		height: 70px
+		line-height: 1.5
+		.icon
+			margin-right: 15px
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 40px
+			height: 40px
+			border-radius: 50%
+			border: 1px solid #fff
+		&_text
+			color: #fff
+			&_title
+				font-size: 0.875rem
+				font-weight: 500
+			&_number
+				color: $pink
+				font-size: 1.125rem
+				font-weight: 700
+
+
+.menu
+	margin: 0
+	padding: 0
+	list-style: none
+	&>.menu-item
+		position: relative
+		display: inline-block
+		margin-right: 50px
+		height: 70px
+		&:hover a
+			color: $pink
+		&:last-child
+			margin-right: 0
+		a
+			color: #ffffff
+			font-size: 1.25rem
+			font-family: Chocolatecyr-lat
+		&.current-menu-parent a,
+		&.current-menu-item a
+			color: $pink
+	.sub-menu
+		z-index: 100
+		position: absolute
+		top: 100%
+		left: 50%
+		transform: translateX(-50%)
+		display: none
+		padding: 30px
+		border: 1px solid $pink
+		background-color: #fff
+		.menu-item
+			display: block
+			margin-bottom: 20px
+			line-height: 1.2
+			&:last-child
+				margin-bottom: 0
+			a
+				color: $dark-blue
+				font-size: 1.125rem
+				font-weight: 500
+				font-family: 'Montserrat', sans-serif
+				white-space: nowrap
+				&:hover
+					color: $pink
+			&.current-menu-item a
+				color: $pink
+	.menu-item-has-children:hover .sub-menu
+		display: block
+	
+
+.slider
+	position: relative
+	.main-slider
+		.slide
+			position: relative
+			&_text
+				position: absolute
+				color: $dark-blue
+				font-size: 2.125rem
+				font-family: Chocolatecyr-lat
+				line-height: 3.5rem
+				.text-pink
+					color: $pink
+				&.slide_text1
+					top: 35%
+					left: 45%
+				&.slide_text2
+					top: 15%
+					left: 9%
+				&.slide_text3
+					top: 14%
+					left: 50%
+					transform: translateX(-50%)
+					text-align: center
+			&_img
+	.slider-nav
+		position: absolute
+		bottom: 25px
+		left: 50%
+		transform: translateX(-50%)
+		display: flex
+		align-items: center
+		&_arrow
+			position: relative
+			width: 40px
+			height: 40px
+			border-radius: 50%
+			border: 1px solid $blue
+			background-color: transparent
+			outline: none
+			&:hover
+				background-color: $pink
+			&::after
+				content: ''
+				position: absolute
+				top: 50%
+				left: 50%
+				width: 10px
+				height: 10px
+				border-top: 2px solid $blue
+				border-left: 2px solid $blue
+			&.prev-arrow::after
+				transform: translate(-25%, -50%) rotate(-45deg)
+			&.next-arrow::after
+				transform: translate(-75%, -50%) rotate(135deg)
+		.slick-dots
+			margin: 0 25px
+			padding: 0
+			display: flex
+			list-style: none
+			li
+				line-height: 0
+				button
+					margin: 0 10px
+					width: 15px
+					height: 15px
+					color: transparent
+					border-radius: 50%
+					border: 1px solid $blue
+					background-color: transparent
+					overflow: hidden
+					outline: none
+				&.slick-active button
+					border-color: $pink
+					box-shadow: 0 2px 3px rgba(255, 178, 214, 0.2)
+					background-image: linear-gradient(54deg, $pink 0%, #ffd4e8 100%)
+
+.title
+	text-align: center
+	font-size: 2.25rem
+	font-family: Chocolatecyr-lat
+
+.what
+	position: relative
+	padding: 130px 0 350px
+	&_background
+		z-index: -1
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+	.title
+		margin-bottom: 50px
+	&_paragraph
+		margin: 0
+		text-align: center
+		font-size: 2rem
+		font-weight: 700
+		line-height: 2.625rem
+	&_list
+		margin-top: 85px
+		counter-reset: what_list
+	&_block
+		display: flex
+		align-items: center
+		&_icon
+			margin-right: 80px
+			position: relative
+			display: flex
+			justify-content: center
+			align-items: center
+			flex-shrink: 0
+			flex-grow: 0
+			width: 300px
+			height: 300px
+			border: 1px solid #d9dbeb
+			border-radius: 50%
+			&::after
+				counter-increment: what_list
+				content: counter(what_list)
+				position: absolute
+				top: 50%
+				right: 0
+				transform: translate(50%, -50%)
+				display: flex
+				justify-content: center
+				align-items: center
+				width: 100px
+				height: 100px
+				color: #fff
+				font-size: 2.625rem
+				font-family: Chocolatecyr-lat
+				border-radius: 50%
+				background-color: $blue
+			&_img
+				width: 61%
+		&_text
+			font-size: 1.625rem
+			font-weight: 500
+			line-height: 2.375rem
+.popular-products
+	.title
+		margin-bottom: 85px
+	&_more_button
+		margin: 35px auto 0
+		color: #fff
+		background-image: linear-gradient(52deg, $pink 0%, #ffd4e8 100%)
+		&:hover,
+		&:focus,
+		&:active
+			color: #fff
+			background-image: linear-gradient(232deg, $pink 0%, #ffd4e8 100%)
+
+.product-block
+	margin-bottom: 30px
+	// padding: 30px
+	box-shadow: 0 5px 10px rgba(129, 136, 190, 0.2)
+	background-color: #fff
+	&_link
+		display: block
+		padding: 30px 30px 0
+		&:hover 
+			.product-block_title,
+			.product-block_paragraph
+				color: $blue
+	&_img
+		width: 100%
+	&_title
+		margin: 15px 0
+		color: $dark-blue
+		text-align: center
+		font-size: 1.375rem
+		font-weight: 700
+	&_paragraph
+		margin-bottom: 20px
+		color: $dark-blue
+		text-align: center
+		line-height: 1.5rem
+	&_info
+		padding: 0 30px 30px
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&_amount
+		color: $blue
+	&_price
+		display: flex
+		align-items: center
+		font-size: 1.375rem
+		font-weight: 600
+		&_icon
+			margin-right: 10px
+			width: 22px
+			height: 22px
+			fill: $dark-blue
+	&_button
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 50px
+		height: 50px
+		border-radius: 50%
+		border: 1px solid #d9dbeb
+		&:hover
+			border: 1px solid transparent
+			background-image: linear-gradient(53deg, $pink 0%, #ffd4e8 100%)
+			.product-block_button_img
+				fill: #fff
+		&_img
+			width: 20px
+			fill: #d9dbeb
+
+.main_page_news
+	padding: 150px 0 50px
+
+.news
+	.title
+		margin-bottom: 50px
+	&_block
+		margin-bottom: 50px
+		border: 1px solid #d9dbeb
+		&_img
+			width: 100%
+		&_text
+			padding: 30px 30px 40px
+		&_title
+			margin-bottom: 10px
+			color: $blue
+			font-size: 1.25rem
+			font-weight: 700
+		&_date
+			margin-bottom: 15px
+			color: $blue
+		&_paragraph
+			line-height: 1.375rem
+		&_read_more
+			color: $blue
+			font-size: 1.125rem
+			font-weight: 600
+			text-decoration: underline
+			&:hover
+				color: $dark-blue
+				text-decoration: underline
+
+.footer
+	padding-top: 50px
+
+.feedback
+	position: relative
+	&_background
+		z-index: 1
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+	.title
+		margin-bottom: 45px
+		color: #fff
+	&_form
+		z-index: 3
+		position: relative
+		padding: 70px
+		border-radius: 40px
+		box-shadow: 0 7px 20px rgba(255, 178, 214, 0.5)
+		background-image: linear-gradient(47deg, $pink 0%, #ffd4e8 100%)
+		&_wrap
+			display: flex
+			justify-content: space-between
+		&_button_wrap
+			margin-top: 40px
+			display: flex
+			justify-content: center
+			align-items: center
+		&_img
+			position: absolute
+			top: -25px
+			right: 0
+			width: 25%
+		&_label
+			position: relative
+			width: 32%
+			color: #fff
+			font-size: 1.125rem
+			.fa
+				position: absolute
+				top: 50%
+				left: 25px
+				transform: translateY(-50%)
+		&_input
+			padding: 15px 25px 15px 50px
+			width: 100%
+			color: #fff
+			border: 1px solid #ffd4e8
+			background-color: transparent
+			outline: none
+			&::placeholder
+				color: #fff
+		&_checkbox
+			margin-right: 25px
+			&:checked + .feedback_form_checkbox_checkmark::after
+				content: '\f00c'
+				position: absolute
+				top: 50%
+				left: 50%
+				color: #fff
+				font-size: 1.125rem
+				font-family: FontAwesome
+				transform: translate(-50%, -50%)
+		&_checkbox_checkmark
+			position: absolute
+			top: 1px
+			left: 0
+			width: 20px
+			height: 20px
+			border: 1px solid #ffd4e8
+			background-color: $pink
+		&_label_checkbox
+			position: relative
+			display: flex
+			align-items: center
+			color: #fff
+		&_submit
+			margin-left: 40px
+			color: $pink
+			background-color: #fff
+			.fa
+				margin-left: 10px
+			&:hover
+				color: #fff
+				border: 1px solid #fff
+				background-color: transparent
+
+.footer_contacts
+	padding: 50px 0
+	background-color: #fff
+	&_block
+		display: flex
+		font-size: 1.125rem
+		font-weight: 500
+		&:first-child
+			margin-top: 40px
+		&:last-child
+			margin-top: 15px
+		.fa
+			margin: 3px 20px 0 0
+			color: $blue
+		&_links
+			display: flex
+			flex-direction: column
+	.links_group
+		display: flex
+		flex-direction: column
+		font-size: 1.125rem
+		font-weight: 500
+		.link
+			margin-top: 10px
+			&:first-child
+				margin-top: 40px
+.social
+	margin-top: 30px
+	display: flex
+	justify-content: center
+	&_link
+		margin: 0 5px
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 40px
+		height: 40px
+		color: $blue
+		font-size: 18px
+		border-radius: 50%
+		border: 1px solid $blue
+		&:hover
+			color: #fff
+			background-color: $blue
+
+.breadcrumbs_wrap
+	padding: 50px 0 70px
+	.kama_breadcrumbs
+		font-size: 1.125rem
+		font-weight: 300
+		.kb_sep,
+		.kb_title
+			font-weight: 500
+
+.single_filter
+	&_head
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 20px 30px
+		font-size: 1.125rem
+		font-weight: 500
+		background-color: #fff
+		cursor: pointer
+		.arrow
+			transition: 0.3s
+			&.inverted
+				transform: rotate(180deg)
+	&_list
+		display: none
+		padding: 0
+		list-style: none
+		&_point
+			padding: 20px 30px
+			border: 1px solid #edeef9
+	&_label
+		margin: 0
+		display: flex
+		cursor: pointer
+	&_checkbox
+		width: 0
+		height: 0
+		&:checked + .single_filter_name
+			color: $pink
+	&_name
+		font-size: 1.125rem
+		.number
+			margin-right: 10px
+			font-weight: 600
+.map_filter
+	margin: 65px 0 30px
+	padding: 0
+	display: flex
+	justify-content: center
+	align-items: center
+	list-style: none
+	font-size: 1.375rem
+	&_item
+		padding: 0 50px
+		&_button.active
+			color: $pink
+.map_wrap
+	position: relative
+	padding-top: 45%
+	.map_block
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+.buy_address
+	margin-top: 100px
+.buy_address_block_wrap
+	margin-bottom: 75px
+	display: flex
+	justify-content: space-between
+.buy_address_block
+	text-align: center
+	&_img
+		margin: 0 auto
+		position: relative
+		width: 250px
+		height: 250px
+		border: 1px solid #d9dbeb
+		border-radius: 50%
+		&_logo
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+	&_title
+		margin: 50px 0 30px
+		font-size: 1.625rem
+		font-weight: 600
+	&_list
+		margin: 0
+		padding: 0
+		list-style: none
+		font-size: 1.375rem
+		text-align: left
+		&_item
+			position: relative
+			margin-bottom: 10px
+			padding-left: 30px
+		.fa
+			position: absolute
+			top: 50%
+			left: 0
+			transform: translateY(-50%)
+			color: $blue
+			font-size: 1.25rem
+
+.contacts
+	margin-bottom: 80px
+	.title
+		margin-bottom: 70px
+	&_social
+		margin-top: 25px
+		display: flex
+		justify-content: center
+		text-align: center
+		&_link
+			margin: 0 5px
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 40px
+			height: 40px
+			color: $blue
+			font-size: 1.375rem
+			border-radius: 50%
+			border: 1px solid $blue
+
+.contacts_blocks
+	display: flex
+	justify-content: space-around
+	.contacts_block
+		text-align: center
+		.img_wrap
+			display: flex
+			justify-content: center
+			align-items: center
+			margin-bottom: 50px
+			padding: 50px
+			width: 250px
+			height: 250px
+			border-radius: 50%
+			border: 1px solid #d9dbeb
+			&_img
+				max-width: 100%
+				max-height: 100%
+		&_text
+			color: $dark-blue
+			font-size: 1.375rem
+		a.contacts_block_text:hover
+			color: $blue
+
+.map-contacts
+	margin-bottom: 100px
+
+.single-product_slider
+	&_slide
+		background-color: #fff
+		&_img
+			width: 100%
+
+.single-product_slider_nav
+	margin: 0 -4px
+	&_slide
+		padding: 4px
+		cursor: pointer
+		&_img
+			width: 100%
+
+.single-product
+	.checkmark-list
+		margin-top: 70px
+	&_title
+		margin-bottom: 10px
+		font-size: 2rem
+		font-weight: 700
+	.stock
+		margin-bottom: 30px
+		color: $blue
+		font-size: 1.125rem
+		font-weight: 600
+	.amount
+		margin-bottom: 15px
+		font-size: 1.375rem
+		.bold
+			font-weight: 600
+	&_description
+		margin-bottom: 30px
+		font-size: 1.375rem
+		&_title
+			margin: 0
+			font-weight: 600
+	&_buttons_wrap
+		display: flex
+		justify-content: space-between
+		align-items: center
+		&_price
+			display: flex
+			align-items: center
+			font-size: 2.25rem
+			font-weight: 600
+			&_icon
+				margin-right: 20px
+				width: 36px
+				height: 36px
+				fill: $dark-blue
+		&_button
+			display: flex
+			justify-content: center
+			align-items: center
+			width: 300px
+			height: 65px
+			color: #fff
+			border-radius: 40px
+			background-image: linear-gradient(52deg, $pink 0%, #ffd4e8 100%)
+			&:hover,
+			&:focus
+				color: #fff
+				background-image: linear-gradient(232deg, $pink 0%, #ffd4e8 100%)
+			&_img
+				margin-left: 5px
+				width: 22px
+				height: 22px
+				fill: #fff
+
+.amount_wrap
+	display: flex
+	align-items: center
+	.amount_button
+		width: 45px
+		height: 45px
+		color: #d9dbeb
+		border-radius: 50%
+		border: 1px solid #d9dbeb
+		background-color: transparent
+		outline: none
+		&:hover
+			color: #fff
+			border-color: transparent
+			background-image: linear-gradient(52deg, $pink 0%, #ffd4e8 100%)
+	.amount_input
+		padding: 0
+		width: 55px
+		font-size: 1.8125rem
+		font-weight: 600
+		text-align: center
+		border: none
+		background-color: transparent
+		outline: none
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  appearance: none
+
+.checkmark-list
+	padding: 0
+	line-height: 1.75rem
+	list-style: none
+	&_item
+		position: relative
+		margin-bottom: 5px
+		padding-left: 25px
+		&::after
+			content: ''
+			position: absolute
+			top: 7px
+			left: 0
+			display: block
+			width: 14px
+			height: 11px
+			background-image: url(../images/checkmark.png)
+
+.news-content
+	&_img
+		margin-bottom: 70px
+		width: 100%
+	.title_small
+		margin-bottom: 50px
+		text-align: center
+		font-size: 2rem
+		font-weight: 600
+	&_list
+		padding: 0
+		list-style: none
+		&_item
+			&_title
+				position: relative
+				padding-left: 25px
+				font-size: 1.125rem
+				font-weight: 600
+				&::after
+					content: ''
+					position: absolute
+					top: 7px
+					left: 0
+					display: block
+					width: 14px
+					height: 11px
+					background-image: url(../images/checkmark.png)
+			&_paragraph
+				margin-top: 20px
+				font-weight: 300
+				line-height: 1.75rem
+
+.other_news
+	margin-top: 100px
+	.title
+		margin-bottom: 80px
 
 @import "media"

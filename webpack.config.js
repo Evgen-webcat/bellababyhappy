@@ -58,7 +58,32 @@ module.exports = {
             }
         }),
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            filename: 'index.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/catalog.html',
+            filename: 'catalog.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/news.html',
+            filename: 'news.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/buy.html',
+            filename: 'buy.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/contacts.html',
+            filename: 'contacts.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/single.html',
+            filename: 'single.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/single-news.html',
+            filename: 'single-news.html'
         }),
         new copyWebpackPlugin([{
             from: './src/fonts',
