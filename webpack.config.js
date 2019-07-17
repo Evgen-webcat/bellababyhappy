@@ -85,6 +85,10 @@ module.exports = {
             template: './src/single-news.html',
             filename: 'single-news.html'
         }),
+        new HtmlWebpackPlugin({
+            template: './src/registration.html',
+            filename: 'registration.html'
+        }),
         new copyWebpackPlugin([{
             from: './src/fonts',
             to: './fonts'
